@@ -2,9 +2,9 @@ pipeline {
   agent any
 
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub-id')
-    SSH_CREDENTIALS      = credentials('vm-ssh-key')
-    IMAGE_NAME           = "moncompte/art-explorer"
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
+    SSH_CREDENTIALS      = credentials('')
+    IMAGE_NAME           = "mrianis/art-explorer"
   }
 
   stages {
@@ -46,7 +46,7 @@ pipeline {
 
   post {
     failure {
-      mail to: 'ton.email@domaine.com',
+      mail to: 'email2test@çamarche.com',
            subject: "Échec build #${env.BUILD_NUMBER}",
            body: "Consulte la console Jenkins pour diagnostics."
     }
